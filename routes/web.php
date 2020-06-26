@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebookProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderFacebookCallback');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
