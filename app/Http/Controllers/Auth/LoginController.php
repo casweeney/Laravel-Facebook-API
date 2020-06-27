@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
+use App\User;
+use Illuminate\Support\Facades\Auth; //for authenticating users
 
 class LoginController extends Controller
 {
@@ -45,6 +47,8 @@ class LoginController extends Controller
     */
     public function redirectToFacebookProvider()
     {
+        // return Socialite::driver('facebook')->scopes([
+        //     "publish_actions, manage_pages", "publish_pages"])->redirect();
         return Socialite::driver('facebook')->redirect();
     }
     
